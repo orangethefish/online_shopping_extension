@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.face {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 150px;
+  padding: 30px;
+  background: lightpink;
+  transition: .3s ease-in-out;
+}
+
+.face:hover {
+  background: green;
+}
+
+.eye {
+  background: lightgray;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-transform-origin: 50%;
+  -webkit-animation: blink 5s infinite;
+}
+
+@-webkit-keyframes blink {
+  0%, 100% {
+      transform: scale(1, .05);
+  }
+  5%,
+  95% {
+      transform: scale(1, 1);
+  }
+}
