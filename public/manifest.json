@@ -12,6 +12,9 @@
        "48": "8505.png",
        "128": "8505.png"
    },
+   "host_permissions": [
+       "http://*/*"
+   ],
    "permissions": [
     "tabs",
     "scripting"

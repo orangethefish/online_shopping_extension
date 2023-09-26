@@ -28,7 +28,7 @@ function App() {
       }
     })
     // Make a GET request to the server's /index/info endpoint
-    axios.get<ResponseData>('http://localhost:5000/index/info')
+    axios.get<ResponseData>('http://localhost:5000/user/info')
       // If the request was successful, update the username and cart state
       .then(res => {
         console.log(res.data);
