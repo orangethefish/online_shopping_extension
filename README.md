@@ -1,3 +1,9 @@
+## Attention when accessing DOM
+
+The site is dynamically rendered, so the DOM is not available when the page is loaded.
+You can inject a script which will end up violating the CSP policy of the site.
+Or you can use setInverval to wait for redering to complete.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -44,3 +50,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
