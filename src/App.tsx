@@ -3,7 +3,6 @@ import axios from 'axios';
 import './App.css';
 import Eye from './pages/Eye';
 
-
 // This is the interface for the response data from the server
 interface ResponseData{
   status?: number;
