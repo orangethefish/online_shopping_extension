@@ -24,6 +24,7 @@ const checkDOM = setInterval(() => {
         for (let element of elements) {
             const prices = element.querySelectorAll('.M-AAFK');
             const cartItem = {
+                username: document.querySelector('.navbar__username').innerText,
                 name: element.querySelector('.JB57cn').innerText,
                 image: element.querySelector('.WanNdG').getAttribute('src'),
                 price: prices[prices.length-1].innerText,
