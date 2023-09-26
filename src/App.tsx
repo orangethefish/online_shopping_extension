@@ -61,8 +61,10 @@ function App() {
       </div>
       {/* The cart is displayed below the eye */}
       <p className='text'>We are currently monitoring {cart} item(s)</p>
-      {!visibility && <button onClick={() => window.open('https://www.shopee.vn/cart', '_blank')} className={`rounded-full bg-amber-300 mx-auto my-2 p-2 btn1`}>Go To Your Cart</button>}
-      {/* {visibility && <button onClick={getCart} className={`rounded-full bg-amber-300 mx-auto my-2 p-2 btn2 `}>Update Items</button>} */}
+      <div className="container flex flex-col">
+        <button className={`rounded-full bg-amber-300 mx-auto my-2 p-2 btn2 `}>More details</button>
+        {!visibility && <button onClick={() => window.open('https://www.shopee.vn/cart', '_blank')} className={`rounded-full bg-amber-300 mx-auto my-2 p-2 btn1`}>Update cart</button>}
+      </div>
     </div>
   );
 }

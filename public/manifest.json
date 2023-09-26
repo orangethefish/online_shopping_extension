@@ -1,16 +1,16 @@
 {
-   "name": "Chrome React SEO Extension",
-   "description": "The power of React and TypeScript for building interactive Chrome extensions",
+   "name": "Smart Shopping Tracker",
+   "description": "Tracks your online shopping cart and prevents false sale off",
    "version": "1.0",
    "manifest_version": 3,
    "action": {
        "default_popup": "index.html",
-       "default_title": "Open the popup"
+       "default_title": "Smart Shopping Tracker"
    },
    "icons": {
-       "16": "logo192.png",
-       "48": "logo192.png",
-       "128": "logo192.png"
+       "16": "8505.png",
+       "48": "8505.png",
+       "128": "8505.png"
    },
    "permissions": [
     "tabs",
@@ -19,7 +19,7 @@
     "content_scripts": [
         {
             "matches": ["https://shopee.vn/cart/*"],
-            "js": ["./static/js/update_cart.ts"],
+            "js": ["./scripts/cart.js"],
             "run_at": "document_end"
         }
     ]
