@@ -1,5 +1,4 @@
-import React from 'react';
-import './Eye.css';
+import './css/Eye.css';
 
 function Eye(){
     return (

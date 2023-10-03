@@ -47,6 +47,7 @@
     "@types/chrome": "^0.0.242",
     "copy-webpack-plugin": "^11.0.0",
     "react-app-rewired": "^2.2.1",
+    "react-router-dom": "^6.16.0",
     "tailwindcss": "^3.3.3"
   }
 }
