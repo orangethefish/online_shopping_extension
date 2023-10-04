@@ -17,7 +17,8 @@
    ],
    "permissions": [
     "tabs",
-    "scripting"
+    "scripting",
+    "storage"
     ],
     "content_scripts": [
         {

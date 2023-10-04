@@ -1,18 +1,13 @@
 import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Eye from './Eye';
-import './css/Popup.css';
 
-// This is the interface for the response data from the server
-interface ResponseData{
-  status?: number;
-  username: string;
-  cart: number;
+const bodySize ={
+        width: '300px',
+        height: '500px'
 }
-
 function Popup() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   // The username and cart are stored in state
   const [username, setUsername] = useState('No username');
   const [cart, setCart] = useState(0);
@@ -29,18 +24,10 @@ function Popup() {
         setVisibility(false);
       }
     })
-    // Make a GET request to the server's /index/info endpoint
-    axios.get<ResponseData>('http://localhost:5000/user/info')
-      // If the request was successful, update the username and cart state
-      .then(res => {
-        console.log(res.data);
-        setUsername(res.data.username);
-        setCart(res.data.cart);
-      })
-      // If the request was not successful, log the error
-      .catch(err => {
-        console.log(err);
-      });
+    chrome.storage.local.get(['username','cart'], result => {
+      setUsername(result['username']); 
+      setCart(result['cart']);
+    });
   }, []);
   
   // This style object is used to center the Eye component horizontally and vertically
@@ -52,7 +39,7 @@ function Popup() {
 
   // The JSX to render
   return (
-    <div className='container text-center'>
+    <div className='container text-center pop' style={bodySize}>
       {/* The username is displayed in the header */}
       <header className='text'>
         Hello {username},

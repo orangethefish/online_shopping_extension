@@ -21,10 +21,11 @@ const checkDOM = setInterval(() => {
       // Access DOM
         const elements = document.querySelectorAll('.zoXdNN');
         const cartItems = [];
+        const username = document.querySelector('.navbar__username').innerText;
         for (let element of elements) {
             const prices = element.querySelectorAll('.M-AAFK');
             const cartItem = {
-                username: document.querySelector('.navbar__username').innerText,
+                username: username,
                 name: element.querySelector('.JB57cn').innerText,
                 image: element.querySelector('.WanNdG').getAttribute('src'),
                 price: prices[prices.length-1].innerText,
@@ -32,6 +33,14 @@ const checkDOM = setInterval(() => {
             cartItems.push(cartItem);
             updateCart(cartItems);
         }
+        // chrome.storage.local.clear();
+        chrome.storage.local.set({ 'username' : username,'cart':cartItems.length}).then(() => {
+            console.log("Value is set");
+        });
+        console.log(cartItems.length);
+        chrome.storage.local.get(['username','cart'], result => {
+            console.log(result)
+        });
     } 
 }, 200);
 async function updateCart(cartItems){
