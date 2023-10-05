@@ -34,12 +34,12 @@ const checkDOM = setInterval(() => {
             updateCart(cartItems);
         }
         // chrome.storage.local.clear();
-        chrome.storage.local.set({ 'username' : username,'cart':cartItems.length}).then(() => {
+        chrome.storage.local.set({ 'username' : username,'cart':cartItems.length,'cartItem':cartItems}).then(() => {
             console.log("Value is set");
         });
         console.log(cartItems.length);
-        chrome.storage.local.get(['username','cart'], result => {
-            console.log(result)
+        chrome.storage.local.get(['username','cart','cartItem'], result => {
+            console.log(result);
         });
     } 
 }, 200);

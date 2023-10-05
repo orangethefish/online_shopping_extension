@@ -39,7 +39,7 @@ function Popup() {
 
   // The JSX to render
   return (
-    <div className='container text-center pop' style={bodySize}>
+    <div className='container text-center pop decoration-white' style={bodySize}>
       {/* The username is displayed in the header */}
       <header className='text'>
         Hello {username},
