@@ -32,8 +32,8 @@ const checkDOM = setInterval(() => {
                 price: prices[prices.length-1].innerText,
             }
             cartItems.push(cartItem);
-            updateCart(cartItems);
         }
+        updateCart(cartItems);
         chrome.storage.local.clear();
         chrome.storage.local.set({ 'username' : username,'cart':cartItems.length,'cartItem':cartItems}).then(() => {
             console.log("Value is set");
@@ -41,7 +41,7 @@ const checkDOM = setInterval(() => {
         console.log(cartItems.length);
         chrome.storage.local.get(['username','cart','cartItem'], result => {
             console.log(result);
-        });
+        }); 
     } 
 }, 200);
 async function updateCart(cartItems){
