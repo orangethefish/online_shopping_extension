@@ -13,18 +13,24 @@ function Dashboard(){
     },[]);
 
     return(
-        <div style={bodySize}>
-            <h1 className="font-mono text-center text-xl font-bold">Tracked Items</h1>
-            <div className="flex flex-col">
+        <div style={bodySize} className="text-center">
+            <h1 className="font-mono text-xl font-bold">Tracked Items</h1>
+            <div className="container text-left">
                 {cart.map((item,index)=>{
                     return(
-                        <div className="flex flex-col justify-center items-center">
-                            <img src={item['image']} alt="product" className="w-32 h-32"/>
-                            <p className="font-mono text-center text-xl font-bold">{item['name']}</p>
-                        </div>
+                        <a href={`https://shopee.vn${item['link']}`} target="_blank" className="flex">
+                            <img src={item['image']} alt="product" className="w-20 h-20"/>
+                            <p className="font-mono text-sm hover:underline">{item['name']}</p>
+                        </a>
                     )
                 })}
             </div>
+            <button
+                onClick={() => window.open('https://www.shopee.vn/cart', '_blank')} 
+                className="rounded-full justify-center bg-amber-300 p-2 my-2 mx-auto hover:bg-amber-400 transition duration-150 btn2 w-1/2"
+            >
+                Not enough? Go to cart
+            </button>
         </div>
     )
 }

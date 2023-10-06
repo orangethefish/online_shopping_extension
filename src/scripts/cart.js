@@ -27,13 +27,14 @@ const checkDOM = setInterval(() => {
             const cartItem = {
                 username: username,
                 name: element.querySelector('.JB57cn').innerText,
+                link: element.querySelector('.JB57cn').getAttribute('href'),   
                 image: element.querySelector('.WanNdG').getAttribute('src'),
                 price: prices[prices.length-1].innerText,
             }
             cartItems.push(cartItem);
             updateCart(cartItems);
         }
-        // chrome.storage.local.clear();
+        chrome.storage.local.clear();
         chrome.storage.local.set({ 'username' : username,'cart':cartItems.length,'cartItem':cartItems}).then(() => {
             console.log("Value is set");
         });
