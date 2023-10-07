@@ -1,17 +1,3 @@
-console.log('cart.js loaded');
-// const scriptTag = document.createElement('script');
-// scriptTag.setAttribute('type','application/javascript');
-// scriptTag.innerText = `document.getElementsByClassName('JB57cn')[0].innerHTML;`;
-// document.head.appendChild(scriptTag);
-
-// //fetch from localhost:3000/index/info and console log all keys
-// fetch('http://localhost:5000/index/info')
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//     })
-//     .catch(err => console.log(err));
-
 // Monitor for changes in document
 const checkDOM = setInterval(() => {
     const content = document.querySelector('.zoXdNN');
