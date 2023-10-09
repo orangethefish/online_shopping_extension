@@ -1,4 +1,15 @@
+const host_url ='http://localhost:5000';
 // Monitor for changes in document
+async function updateCart(cartItems){
+    url = `${host_url}/user/update-cart`;
+    await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(cartItems),
+        headers: {
+            'Content-Type': 'application/json'
+        }}).then(response => response.json())
+
+}
 const checkDOM = setInterval(() => {
     const content = document.querySelector('.zoXdNN');
     if(content) {
@@ -30,13 +41,3 @@ const checkDOM = setInterval(() => {
         }); 
     } 
 }, 200);
-async function updateCart(cartItems){
-    url = 'http://localhost:5000/user/update-cart';
-    await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(cartItems),
-        headers: {
-            'Content-Type': 'application/json'
-        }}).then(response => response.json())
-
-}
