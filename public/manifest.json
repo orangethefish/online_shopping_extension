@@ -15,6 +15,9 @@
    "host_permissions": [
        "http://*/*"
    ],
+   "background": {
+       "service_worker": "./scripts/background.js"
+   },
    "permissions": [
     "tabs",
     "scripting",
@@ -24,6 +27,11 @@
         {
             "matches": ["https://shopee.vn/cart/*"],
             "js": ["./scripts/cart.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["https://shopee.vn/"],
+            "js": ["./scripts/homepage.js"],
             "run_at": "document_end"
         }
     ]
