@@ -18,13 +18,11 @@ function Popup() {
   const [username, setUsername] = useState('No username');
   const [cart, setCart] = useState(0);
   const [visibility, setVisibility] = useState(false);
-  const [tabId, setTabId] = useState(0);
   // Use useEffect to run this code when the component is first rendered
   useEffect(() => {
     // Get the current tab's URL
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
       const url = tabs[0]?.url;
-      setTabId(tabs[0]?.id || 0);
       // Check if Cart
       if(url?.includes('cart')) {
         setVisibility(true);
