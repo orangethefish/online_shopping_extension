@@ -1,3 +1,4 @@
+console.log('getCartSize.js is running');
 const checkDOM = setInterval(() => {
     const content = document.querySelector('.shopee-cart-number-badge');
     if(content){
@@ -10,6 +11,6 @@ const checkDOM = setInterval(() => {
         chrome.storage.local.get(['username','cart'], result => {
             console.log(result);
         });
-        // chrome.runtime.sendMessage({redirect: "http://shopee.vn/cart"});
+        chrome.runtime.sendMessage({redirect: "http://shopee.vn/cart"});
     }
 }, 200);

@@ -1,7 +1,7 @@
 {
    "name": "Smart Shopping Tracker",
    "description": "Tracks your online shopping cart and prevents false sale off",
-   "version": "0.1",
+   "version": "0.9",
    "manifest_version": 3,
    "action": {
        "default_popup": "index.html",
@@ -13,6 +13,7 @@
        "128": "8505.png"
    },
    "host_permissions": [
+       "https://*/*",
        "http://*/*"
    ],
    "background": {
@@ -20,6 +21,7 @@
    },
    "permissions": [
     "tabs",
+    "activeTab",
     "scripting",
     "storage"
     ],
@@ -27,11 +29,6 @@
         {
             "matches": ["https://shopee.vn/cart/*"],
             "js": ["./scripts/cart.js"],
-            "run_at": "document_end"
-        },
-        {
-            "matches": ["https://shopee.vn/"],
-            "js": ["./scripts/homepage.js"],
             "run_at": "document_end"
         }
     ]

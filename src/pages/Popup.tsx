@@ -6,17 +6,25 @@ const bodySize ={
         width: '300px',
         height: '500px'
 }
+// async function getCurrentTabId() {
+//   let queryOptions = { active: true, lastFocusedWindow: true };
+//   // `tab` will either be a `tabs.Tab` instance or `undefined`.
+//   let [tab] = await chrome.tabs.query(queryOptions);
+//   return tab.id;
+// }
 function Popup() {
   const navigate = useNavigate();
   // The username and cart are stored in state
   const [username, setUsername] = useState('No username');
   const [cart, setCart] = useState(0);
   const [visibility, setVisibility] = useState(false);
+  const [tabId, setTabId] = useState(0);
   // Use useEffect to run this code when the component is first rendered
   useEffect(() => {
     // Get the current tab's URL
-    chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
       const url = tabs[0]?.url;
+      setTabId(tabs[0]?.id || 0);
       // Check if Cart
       if(url?.includes('cart')) {
         setVisibility(true);
@@ -60,7 +68,18 @@ function Popup() {
 
         {!visibility && (
         <button
-            onClick={() => window.open('https://www.shopee.vn/cart', '_blank')} 
+            onClick={() => {
+              chrome.tabs.create({url: 'https://www.shopee.vn/',active:false}).then((tab) => {
+                chrome.scripting.executeScript({
+                  target: {tabId: tab.id || 0},
+                  files: ['./scripts/getCartSize.js']})
+                chrome.tabs.update(tab.id || 0,{"active":true});
+                // setTimeout(() => {
+                //   chrome.tabs.remove(tab.id || 0);
+                // }, 5000)
+            }); 
+                
+            }} 
             className="rounded-full bg-amber-300 p-2 my-2 mx-auto hover:bg-amber-400 transition duration-150 btn2 w-1/2"
         >
             Update cart
